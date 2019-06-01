@@ -35,9 +35,12 @@
                 </table>
             <div class="row">
             <% if @user.id == current_user.id %>
-             <p><%= link_to "", edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %></p>
+              <%= link_to "", edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+            <% else %>
+              <%= link_to "",user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
             <% end %>
             </div>
+
                 <h2>New book</h2>
                 <div class="field row" style="margin-bottom:10px;">
                 <h4 style="margin-top:0; margin-bottom:5px; font-size:14px;">Title</h4>
@@ -45,7 +48,7 @@
                 </div>
                 <div class="field row" style="margin-bottom:10px;">
                 <h4 style="margin-top:0; margin-bottom:5px; font-size:14px;">Opinion</h4>
-                <%= f.text_area :opinion, class:"book_body col-xs-12"  %>
+                <%= f.text_area :body, class:"book_body col-xs-12"  %>
                 </div>
                 <div class="field row" style="margin-bottom:10px;">
                 <%= f.submit "Create Book", class:"book_submit btn btn-primary col-xs-12" %>
@@ -75,7 +78,7 @@
                         <%= book.title %>
                          <% end %>
                         </th>
-                        <th><%= book.opinion %></th>
+                        <th><%= book.body %></th>
                     </tr>
                 </thead>
                 <% end %>

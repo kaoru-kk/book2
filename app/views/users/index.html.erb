@@ -1,4 +1,10 @@
 <div class="container">
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <div class="row">
         <div class="col-xs-3">
            <%= form_for(@book) do |f| %>
@@ -40,7 +46,7 @@
                 </div>
                 <div class="field row" style="margin-bottom:10px;">
                 <h4 style="margin-top:0; margin-bottom:5px; font-size:14px;">Opinion</h4>
-                <%= f.text_area :opinion, class:"book_body col-xs-12"  %>
+                <%= f.text_area :body, class:"book_body col-xs-12"  %>
                 </div>
                 <div class="field row" style="margin-bottom:10px;">
                 <%= f.submit "Create Book", class:"book_submit btn btn-primary col-xs-12" %>
